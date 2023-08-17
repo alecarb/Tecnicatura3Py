@@ -33,25 +33,25 @@ class PersonaDAO:
     @classmethod
     def insertar(cls, persona):
         with CursorDelPool() as cursor:
+            log.debug(f'Persona a insertar: {persona}')
             valores = (persona.nombre, persona.apellido, persona.email)
             cursor.execute(cls._INSERTAR, valores)
-            log.debug(f'Persona Insertada: {persona}')
             return cursor.rowcount
 
     @classmethod
     def actualizar(cls, persona):
         with CursorDelPool() as cursor:
+            log.debug(f'Persona a actualizar: {persona}')
             valores = (persona.nombre, persona.apellido, persona.email, persona.id_persona)
             cursor.execute(cls._ACTUALIZAR, valores)
-            log.debug(f'Persona actualizada: {persona}')
             return cursor.rowcount
 
     @classmethod
     def eliminar(cls, persona):
         with CursorDelPool() as cursor:
+            log.debug(f'Persona eliminada: {persona}')
             valores = (persona.id_persona,)
             cursor.execute(cls._ELIMINAR, valores)
-            log.debug(f'Los valores eliminados son: {persona}')
             return cursor.rowcount
 
 

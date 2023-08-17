@@ -19,9 +19,6 @@ class Conexion:
         log.debug(f'Conexion obtenida del pool: {conexion}')
         return conexion
 
-    @classmethod
-    def obtenerCursor(cls):
-       pass
 
     @classmethod
     def obtenerPool(cls):
@@ -51,9 +48,3 @@ class Conexion:
     def cerrarConexiones(cls):
         cls.obtenerPool().closeall()
 
-if __name__ == '__main__':
-    conexio1 = Conexion.obtenerConexion()
-    Conexion.liberarConexion(conexio1)
-    conexio2 = Conexion.obtenerConexion()
-    Conexion.liberarConexion(conexio2)
-    conexio3 = Conexion.obtenerConexion()
